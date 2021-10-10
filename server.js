@@ -2,6 +2,7 @@ const express = require("express");
 const dotEnv = require("dotenv").config({ path: "./config/config.env" });
 const morgan = require("morgan");
 const colors = require("colors");
+const errorHandler = require("./middleware/error");
 const connectDB = require("./config/db");
 
 // Database connection
@@ -22,6 +23,8 @@ if (process.env.NODE_ENV === "development") {
 
 // Mount routers
 app.use("/api/v2/bootcamps", bootcamps);
+
+app.use(errorHandler); //middleware runs in linear order so errorHandler should be placed after routers
 
 const PORT = process.env.PORT || 5000;
 

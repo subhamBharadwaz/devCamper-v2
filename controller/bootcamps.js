@@ -4,7 +4,7 @@ const geocoder = require("../utils/geocoder");
 const Bootcamp = require("../models/Bootcamp");
 
 /**
- * @desc     Get all bootcamps
+ * @desc     Get  bootcamps
  * @route    GET /api/v2/bootcamps
  * @access   Public
  */
